@@ -1,0 +1,13 @@
+{
+    "name": "@ngx-electron/cli",
+    "version": "0.0.1",
+    "main": "index.js",
+    "author": "liangshen001",
+    "peerDependencies": {
+        "electron": "2.0.3",
+        "commander": "2.19.0"
+    },
+    "bin": {
+        "ngx-electron": "./bin/ngx-electron.js"
+    }
+}
