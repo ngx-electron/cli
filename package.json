@@ -4,6 +4,8 @@
     "main": "index.js",
     "author": "liangshen001",
     "peerDependencies": {
+        "@ngx-electron/main": "0.0.1",
+        "@ngx-electron/core": "0.0.1",
         "electron": "2.0.3",
         "commander": "2.19.0"
     },
