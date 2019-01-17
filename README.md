@@ -1,65 +1,87 @@
-# @ngx-electron/main
+# @ngx-electron/cli
 
-解决在渲染进程中创建窗口，创建Tray，窗口间传递数据。同时需要在angular中引入@ngx-electron/core模块，以angular的风格来操作。
+ngx-electron 命令行工具
+## 使用
 
-## 使用(在主进程中引用)
+### 查看帮助
 
-在启动electron时可以配置一些参数如
 ```
-electron . --server --port 4200 --host localhost
+ngx-electron -h
 ```
 
-
-初始化ipcMain的一些监听，与@ngx-electron/core或@ngx-electron/data进行交互，用户不需要关心，可以减少用户的ipc操作
-* function initElectronMainIpcListener(): void
-
-创建一个tray（在windows中有效，否则返回null）
-imageUrl: 图片路径
-* function createTray(imageUrl: string): Tray
-
-创建一个窗体
-routerUrl：路由url
-options：窗体的选项 为了方便创建，原有的一些默认选项被调整 被调整的选项如下
-```json
-{
-    "hasShadow": true,
-    "frame": false,
-    "transparent": true,
-    "show": false
-}
 ```
-* function createWindow(routerUrl: string, options: BrowserWindowConstructorOptions = {}, key = routerUrl): BrowserWindow
+Usage: ngx-electron <command> [options]
+
+Options:
+  -V, --version                 output the version number
+  --aot                         Build using Ahead of Time compilation.
+  --base-href [value]           Base url for the application being built.
+  --browser-target [value]      Target to serve.
+  --common-chunk                Use a separate bundle containing code used across
+ multiple bundles.
+  -c, --configuration [value]   A named configuration environment, as specified i
+n the "configurations" section of angular.json.
+  --deploy-url [value]          URL where files will be deployed.
+  --disable-host-check          Don't verify connected clients are part of allowe
+d hosts.
+  --eval-source-map             Output in-file eval sourcemaps.
+  --hmr                         Enable hot module replacement.
+  --hmr-warning                 Show a warning when the --hmr option is enabled.
+  --host [value]                Host to listen on. (default: "localhost")
+  --live-reload                 Whether to reload the page on change, using live-
+reload.
+  -o, --open                    Opens the url in default browser.
+  --optimization                Enables optimization of the build output.
+  --poll                        Enable and define the file watching poll time per
+iod in milliseconds.
+  --port [value]                Port to listen on. (default: 4200)
+  --prod                        When true, sets the build configuration to the pr
+oduction environment.
+      All builds make use of bundling and limited tree-shaking, A production buil
+d also runs limited dead code elimination using UglifyJS.
+  --progress                    Log progress to the console while building.
+  --proxy-config [value]        Proxy configuration file.
+  --public-host [value]         Specify the URL that the browser client will use.
+
+  --serve-path [value]          The pathname where the app will be served.
+  --serve-path-default-warning  Show a warning when deploy-url/base-href use unsu
+pported serve path values.
+  --source-map                  Output sourcemaps.
+  --ssl                         Serve using HTTPS.
+  --ssl-cert [value]            SSL certificate to use for serving HTTPS.
+  --ssl-key [value]             SSL key to use for serving HTTPS.
+  --vendor-chunk                Use a separate bundle containing only vendor libr
+aries.
+  --vendor-source-map           Resolve vendor packages sourcemaps.
+  --verbose                     Adds more details to output logging.
+  --watch                       Rebuild on change.
+  -s, --server                  设置加载的页面来自于服务器
+  -h, --help                    output usage information
+
+Commands:
+  *                             启动应用程序
+  help [cmd]                    display help for [cmd]
+
+```
+
+### 启动一个ngx-electron应用
 
 
-## 例子
-main.ts
+#### 启动加载本地资源（修改文件应用不能刷新，不利于开发）
+```
+ngx-electron .
+```
 
-```typescript
-import {app, BrowserWindow, Tray} from 'electron';
-import {createTray, createWindow, initElectronMainIpcListener, isMac} from '@ngx-electron/main';
-
-let loginWin: BrowserWindow, tray: Tray;
-
-// 初始化监听
-initElectronMainIpcListener();
+#### 启动加载服务器资源（适于在开发中使用，修改文件会刷新，可指定上面的其它选项[angular启动选项]）
 
 
-function init() {
-    console.log(process.platform);
-    tray = createTray('icon/icon.ico');
+```
+ngx-electron . --server
+```
 
-    loginWin = createWindow('auth', {
-        width: 439,
-        height: 340,
-        alwaysOnTop: true,
-        skipTaskbar: true,
-        resizable: false,
-        fullscreenable: false,
-        maximizable: false,
-        title: 'moon'
-    });
-    loginWin.on('close', () => app.quit());
-}
+建议使用hmr选项（热更新适于开发）
 
+```
+ngx-electron . --server --hmr
 ```
 

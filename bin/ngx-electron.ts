@@ -40,8 +40,8 @@ program.version(require('../package').version)
     .option('--vendor-source-map', 'Resolve vendor packages sourcemaps.')
     .option('--verbose', 'Adds more details to output logging.')
     .option('--watch', 'Rebuild on change.')
-    .option('-s, --server', '设置加载的页面来自于服务器')
-    .option('-s, --server', '设置加载的页面来自于服务器')
+    .option('-s, --server', '设置加载的页面来自于服务器, 默认会打开应用的调试器')
+    .option('--open-dev-tools', '是否打开应用的调试器')
     .action(action)
     .parse(process.argv);
 
@@ -49,7 +49,7 @@ function action(type, {
     aot, baseHref, browserTarget, commonChunk, configuration, deployUrl, disableHostCheck,
     evalSourceMap, hmr, hmrWarning, host, liveReload, open, optimization, poll, port, prod,
     progress, proxyConfig, publicHost, servePath, servePathDefaultWarning, sourceMap, ssl,
-    sslCert, sslKey, vendorChunk, vendorSourceMap, verbose, watch, server
+    sslCert, sslKey, vendorChunk, vendorSourceMap, verbose, watch, server, openDevTools
 }) {
     const buildElectronCmd = 'tsc -p node_modules/@ngx-electron/main/tsconfig.electron.json';
     if (server) {
@@ -73,7 +73,7 @@ function action(type, {
         console.log(`${waitOnCmd} && ${buildElectronCmd} && ${electronCmd}`);
     } else {
         const ngBuild = 'ng build';
-        const electronCmd = `electron ${type}`;
+        const electronCmd = `electron ${type} ${getOption({openDevTools})}`;
         exec(`npx ${buildElectronCmd} && npx ${ngBuild} && npx ${electronCmd}`);
         console.log(`${buildElectronCmd} && ${ngBuild} && ${electronCmd}`);
     }
