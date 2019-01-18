@@ -1,10 +1,15 @@
 #!/usr/bin/env node
 import * as program from 'commander';
 import * as child_process from 'child_process';
+import * as fs from 'fs';
+import * as path from 'path';
+import {exec, getOption} from './util';
+const fse = require('fs-extra');
 
 const actionMap = {
     serverAction,
-    localAction
+    localAction,
+    newAction
 };
 
 interface CommandStructure {
@@ -46,13 +51,20 @@ for (const command of commands) {
 
 program.parse(process.argv);
 
+function newAction(projectName) {
+    console.log(projectName);
+    console.log(__dirname);
+    path.join(__dirname, '../tsconfig.electron.json');
+    // fs.mkdirSync(path.join(__dirname, '../template/Crud.ejs'))
+}
+
 function serverAction(project, {
     aot, baseHref, browserTarget, commonChunk, configuration, deployUrl, disableHostCheck,
     evalSourceMap, hmr, hmrWarning, host, liveReload, open, optimization, poll, port, prod,
     progress, proxyConfig, publicHost, servePath, servePathDefaultWarning, sourceMap, ssl,
     sslCert, sslKey, vendorChunk, vendorSourceMap, verbose, watch
 }) {
-    const buildElectronCmd = 'tsc -p node_modules/@ngx-electron/main/tsconfig.electron.json';
+    const buildElectronCmd = `tsc -p ${path.join(__dirname, '../tsconfig.electron.json')}`;
     const ngServeCmd = `ng serve ${getOption({aot})}${getOption({baseHref}, true)}` +
         `${getOption({browserTarget}, true)}${getOption({commonChunk})}` +
         `${getOption({configuration}, true)}${getOption({deployUrl}, true)}` +
@@ -81,7 +93,7 @@ function localAction(project, {
     vendorChunk, vendorSourceMap, verbose, watch, showCircularDependencies, skipAppShell, sourceMap,
     statsJson, subresourceIntegrity, tsConfig
 }) {
-    const buildElectronCmd = 'tsc -p node_modules/@ngx-electron/main/tsconfig.electron.json';
+    const buildElectronCmd = `tsc -p ${path.join(__dirname, '../tsconfig.electron.json')}`;
     const ngBuild = `ng build ${getOption({aot})}${getOption({baseHref}, true)}` +
         `${getOption({buildOptimizer})}${getOption({commonChunk})}` +
         `${getOption({configuration}, true)}${getOption({deployUrl}, true)}` +
@@ -99,32 +111,4 @@ function localAction(project, {
     const electronCmd = `electron ${project} --open-dev-tools`;
     exec(`npx ${buildElectronCmd} && npx ${ngBuild} && npx ${electronCmd}`);
     console.log(`${buildElectronCmd} && ${ngBuild} && ${electronCmd}`);
-}
-
-function exec(cmd: string) {
-    child_process.exec(cmd, (err, stdout, stderr) => {
-        if (err) {
-            console.log(err);
-        } else if (stdout) {
-            console.log(stdout);
-        } else {
-            console.log(stderr);
-        }
-    });
-}
-
-function getOption(obj: object, showValue: boolean = false) {
-    const key = Object.keys(obj)[0];
-    const value = obj[key];
-    if (value) {
-        const optionName =  `--${toLine(key)}`;
-        return showValue ? `${optionName} ${value} ` : `${optionName} `;
-    } else {
-        return '';
-    }
-}
-
-// 驼峰转换下划线
-function toLine(name: string) {
-    return name.replace(/([A-Z])/g, '-$1').toLowerCase();
 }

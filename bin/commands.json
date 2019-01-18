@@ -1,8 +1,8 @@
 [
   {
-    "name": "server <project>",
+    "name": "server-start <project>",
     "desc": "启动服务运行web页面，然后应用来加载服务上的web页面",
-    "alias": "s",
+    "alias": "ss",
     "actionName": "serverAction",
     "usage": "<project> [options]",
     "options": [
@@ -131,8 +131,8 @@
     ]
   },
   {
-    "name": "local",
-    "alias": "l",
+    "name": "local-start <project>",
+    "alias": "ls",
     "desc": "编译并加载本地页面",
     "usage": "<project> [options]",
     "actionName": "localAction",
@@ -298,5 +298,12 @@
         "desc": "Run build when files change."
       }
     ]
+  },
+  {
+    "name": "new <projectName>",
+    "alias": "n",
+    "usage": "<projectName>",
+    "desc": "创建一个angular, electron应用",
+    "actionName": "newAction"
   }
 ]
