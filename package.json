@@ -1,16 +1,22 @@
 {
     "name": "@ngx-electron/cli",
-    "version": "0.0.1",
+    "version": "0.0.7",
     "main": "index.js",
     "author": "liangshen001",
     "peerDependencies": {
         "@ngx-electron/main": "0.0.1",
-        "@ngx-electron/core": "0.0.1",
+        "@ngx-electron/core": "0.0.1"
+    },
+    "dependencies": {
         "electron": "2.0.3",
         "commander": "2.19.0",
         "fs-extra": "^7.0.1"
     },
     "bin": {
         "ngx-electron": "./bin/ngx-electron.js"
-    }
+    },
+    "keywords": [
+        "angular",
+        "electron"
+    ]
 }
