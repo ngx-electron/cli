@@ -1,18 +1,9 @@
 #!/usr/bin/env node
 import * as program from 'commander';
-import {localStartAction} from './local-start';
-import {serverStartAction} from './server-start';
-import {newAction} from './new';
-
-const actionMap = {
-    serverStartAction,
-    localStartAction,
-    newAction
-};
 
 interface CommandStructure {
     name: string;
-    actionName: string;
+    filePath: string;
     desc: string;
     usage: string;
     alias?: string;
@@ -44,7 +35,8 @@ for (const command of commands) {
             }
         }
     }
-    cmd.action(actionMap[command.actionName]);
+    const {action} = require(command.filePath);
+    cmd.action(action);
 }
 
 program.parse(process.argv);

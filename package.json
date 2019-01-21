@@ -3,6 +3,10 @@
     "version": "0.0.7",
     "main": "index.js",
     "author": "liangshen001",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ngx-electron/cli.git"
+    },
     "peerDependencies": {
         "@ngx-electron/main": "0.0.1",
         "@ngx-electron/core": "0.0.1"

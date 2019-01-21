@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<ngx-electron-window [showCloseBtn]="true" [showMiniBtn]="true">
+<ngx-electron-window [showCloseBtn]="true" [showMiniBtn]="true" [background]="'white'">
     <header></header>
     <div style="text-align:center">
       <h1>
@@ -10,6 +10,7 @@
     <ul>
       <li>
         <h2><a target="_blank" rel="noopener" href="javascript:void(0);" (click)="openPage2()">open page2</a></h2>
+        <h2><a target="_blank" rel="noopener" href="javascript:void(0);" (click)="sendData()">send data to page2</a></h2>
       </li>
     </ul>
 </ngx-electron-window>

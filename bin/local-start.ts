@@ -2,7 +2,7 @@ import * as path from 'path';
 import {exec, getOption} from './util';
 
 
-export function localStartAction(project, {
+export function action(project, {
     aot, baseHref, buildOptimizer, commonChunk, configuration, deleteOutputPath, deployUrl,
     evalSourceMap, extractCss, extractLicenses, forkTypeChecker, i18nFile, i18nFormat, i18nLocale,
     i18nMissingTranslation, index, lazyModules, main, namedChunks, ngswConfigPath, optimization,
@@ -10,7 +10,7 @@ export function localStartAction(project, {
     vendorChunk, vendorSourceMap, verbose, watch, showCircularDependencies, skipAppShell, sourceMap,
     statsJson, subresourceIntegrity, tsConfig
 }) {
-    const buildElectronCmd = `tsc -p ${path.join(__dirname, '../tsconfig.electron.json')}`;
+    const buildElectronCmd = `tsc -p ${path.join(process.cwd(), project, 'node_modules/@ngx-electron/cli/tsconfig.electron.json')}`;
     const ngBuild = `ng build ${getOption({aot})}${getOption({baseHref}, true)}` +
         `${getOption({buildOptimizer})}${getOption({commonChunk})}` +
         `${getOption({configuration}, true)}${getOption({deployUrl}, true)}` +
@@ -25,7 +25,7 @@ export function localStartAction(project, {
         `${getOption({vendorSourceMap})}${getOption({verbose})}${getOption({watch})}` +
         `${getOption({showCircularDependencies})}${getOption({skipAppShell})}${getOption({sourceMap})}` +
         `${getOption({statsJson})}${getOption({subresourceIntegrity})}${getOption({tsConfig}, true)}`;
-    const electronCmd = `electron ${project} --open-dev-tools`;
-    exec(`npx ${buildElectronCmd} && npx ${ngBuild} && npx ${electronCmd}`);
-    console.log(`${buildElectronCmd} && ${ngBuild} && ${electronCmd}`);
+    const electronCmd = `electron . --open-dev-tools`;
+    exec(`npx ${buildElectronCmd} && cd ${project} && npx ${ngBuild} && npx ${electronCmd}`);
+    console.log(`npx ${buildElectronCmd} && cd ${project} && npx ${ngBuild} && npx ${electronCmd}`);
 }

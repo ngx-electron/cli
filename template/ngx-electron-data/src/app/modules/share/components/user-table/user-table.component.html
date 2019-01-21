@@ -1,0 +1,46 @@
+
+<table width="400" border="0" cellspacing="0" cellpadding="0">
+    <thead>
+    <tr>
+        <td>id</td>
+        <td>name</td>
+        <td>sort</td>
+        <td>operate</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users$ | async">
+        <td>
+            {{user.id}}
+        </td>
+        <td>
+            <span *ngIf="!updateMap.get(user.id)">{{user.name}}</span>
+            <input *ngIf="updateMap.get(user.id)" [(ngModel)]="updateMap.get(user.id).name">
+        </td>
+        <td>
+
+            <span *ngIf="!updateMap.get(user.id)">{{user.sort}}</span>
+            <input *ngIf="updateMap.get(user.id)" [(ngModel)]="updateMap.get(user.id).sort">
+        </td>
+        <td>
+            <a *ngIf="!updateMap.get(user.id)" (click)="modify(user)" href="javascript:void(0);">modify</a>
+            <a *ngIf="!updateMap.get(user.id)" (click)="deleteUser(user.id)" href="javascript:void(0);">delete</a>
+            <a *ngIf="updateMap.get(user.id)" (click)="update(user.id)" href="javascript:void(0);">update</a>
+            <a *ngIf="updateMap.get(user.id)" (click)="cancelUpdate(user.id)" href="javascript:void(0);">cancel</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<hr>
+<div>
+    <label>name</label>
+    <input [(ngModel)]="name">
+</div>
+<div>
+    <label>sort</label>
+    <input [(ngModel)]="sort" type="number">
+</div>
+<div>
+    <button (click)="addUser()"
+            [disabled]="!name || !sort">add user</button>
+</div>

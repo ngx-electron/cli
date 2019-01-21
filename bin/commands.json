@@ -3,7 +3,7 @@
         "name": "server-start <project>",
         "desc": "启动服务运行web页面，然后应用来加载服务上的web页面",
         "alias": "ss",
-        "actionName": "serverStartAction",
+        "filePath": "./server-start",
         "usage": "<project> [options]",
         "options": [
             {
@@ -135,7 +135,7 @@
         "alias": "ls",
         "desc": "编译并加载本地页面",
         "usage": "<project> [options]",
-        "actionName": "localStartAction",
+        "filePath": "./local-start",
         "options": [
             {
                 "flags": "--aot",
@@ -304,7 +304,7 @@
         "alias": "n",
         "usage": "<projectName>",
         "desc": "创建一个angular, electron应用",
-        "actionName": "newAction",
+        "filePath": "./new",
         "options": [
             {
                 "flags": "-d, --data",

@@ -1,6 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
-import {User} from '../../../../models/user';
 import {NgxElectronDataService} from '@ngx-electron/data';
 import {select, Store} from '@ngrx/store';
 import {getAllUsers, UserReducerState} from '../../../../reducers/user.reducer';
@@ -13,24 +11,12 @@ import {map, take} from 'rxjs/operators';
 })
 export class Page1IndexComponent implements OnInit {
     title = 'page1';
-    users$: Observable<User[]>;
 
     constructor(private store$: Store<UserReducerState>,
                 private electronDataService: NgxElectronDataService) {}
 
     ngOnInit(): void {
         this.store$.dispatch(new LoadUserList());
-        this.users$ = this.store$.pipe(
-            select(getAllUsers)
-        );
-    }
-
-    updateUser(id: number) {
-
-    }
-
-    deleteUser(id: number) {
-        this.electronDataService.dispatch(new DeleteUser(id))
     }
 
     openPage2() {

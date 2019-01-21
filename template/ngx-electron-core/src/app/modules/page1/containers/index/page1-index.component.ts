@@ -18,4 +18,8 @@ export class Page1IndexComponent {
             initData: this.title
         });
     }
+
+    sendData() {
+        this.electronService.send('page1 data', 'page2');
+    }
 }

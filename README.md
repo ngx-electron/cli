@@ -1,6 +1,6 @@
 # @ngx-electron/cli
 
-ngx-electron 命令行工具，用于创建angular-electron应用，启动angular-electron应用（可以选择本地运行，和以服务的方式运行【用于开发使用热替换】）
+ngx-electron 命令行工具，用于创建angular-electron应用，启动angular-electron应用（可以选择本地运行，和以服务的方式运行【建议使用热替换，创建的应用支持此方式】）
 
 ## 全局安装
 
@@ -9,6 +9,11 @@ npm install -g @ngx-electron/cli
 ```
 
 ## 使用
+
+```
+ngx-electron new demo --data # 创建一个@ngx-electron/core和@ngx-electron/data的项目 因为需要下载依赖包所以可能比较慢 可以使用--skip-install选项取消下载
+ngx-electron server-start ./demo --hmr # 启动angular项目在4200端口，然后electron会加载这这个端口的页面 此时如果修改代码 electron应用会刷新
+```
 
 ### 查看帮助
 

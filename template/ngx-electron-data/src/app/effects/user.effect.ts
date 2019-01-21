@@ -11,11 +11,11 @@ export class UserEffect {
     loadUserList$ = this.actions$.pipe(
         ofType<LoadUserList>(UserActionTypes.LOAD_USER_LIST),
         switchMap(() => of([{
-            id: 1,
+            id: 0,
             name: 'liangshen',
             sort: 1
         }, {
-            id: 2,
+            id: 1,
             name: 'liangshen2',
             sort: 2
         }])),

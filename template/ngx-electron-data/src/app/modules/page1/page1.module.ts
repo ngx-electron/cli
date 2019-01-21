@@ -4,13 +4,12 @@ import {containers} from './containers';
 import {Page1RoutingModule} from './page1-routing.module';
 import {NgxElectronCoreModule} from '@ngx-electron/core';
 import {NgxElectronDataModule} from '@ngx-electron/data';
+import {ShareModule} from '../share/share.module';
 
 @NgModule({
     imports: [
         Page1RoutingModule,
-        CommonModule,
-        NgxElectronCoreModule,
-        NgxElectronDataModule
+        ShareModule
     ],
     declarations: [
       ...containers
