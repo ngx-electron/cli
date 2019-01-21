@@ -3,7 +3,7 @@ import {Observable} from 'rxjs';
 import {User} from '../../../../models/user';
 import {select, Store} from '@ngrx/store';
 import {DeleteUser} from '../../../../actions/user.action';
-import {getAllUsers} from '../../../../reducers/user.reducer';
+import {getAllUsers, UserReducerState} from '../../../../reducers/user.reducer';
 import {NgxElectronDataService} from '@ngx-electron/data';
 
 @Component({
@@ -14,7 +14,7 @@ export class Page2IndexComponent implements OnInit {
   title = 'page2';
     users$: Observable<User[]>;
 
-    constructor(private store$: Store,
+    constructor(private store$: Store<UserReducerState>,
                 private electronDataService: NgxElectronDataService) {}
 
     ngOnInit(): void {

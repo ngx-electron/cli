@@ -1,7 +1,5 @@
 import {ActionReducer, ActionReducerMap, MetaReducer} from '@ngrx/store';
-import * as fromRouter from '@ngrx/router-store';
-import * as fromApp from '../../../../../../../../src/app/reducers/app.reducer';
-import {environment} from '../../../../../../../../src/environments/environment';
+import {environment} from '../../environments/environment';
 import {storeFreeze} from 'ngrx-store-freeze';
 import {routerReducer, RouterReducerState} from '@ngrx/router-store';
 import {Params, RouterStateSnapshot} from '@angular/router';
