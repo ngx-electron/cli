@@ -309,6 +309,10 @@
             {
                 "flags": "-d, --data",
                 "desc": "加入依赖@ngx-electron/data(引入ngrx相关的模块)"
+            },
+            {
+                "flags": "--skip-install",
+                "desc": "跳过npm install"
             }
         ]
     }
