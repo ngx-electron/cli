@@ -13,7 +13,7 @@ export function action(projectName, {data, skipInstall}) {
         .then(() => {
             if (!skipInstall) {
                 console.log('开始下载依赖包...');
-                spawn('npm.cmd', ['install'], {
+                spawn('npm', ['install'], {
                     cwd: projectName
                 });
             } else {
