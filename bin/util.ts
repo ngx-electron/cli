@@ -1,29 +1,33 @@
 import * as child_process from 'child_process';
 import * as path from 'path';
+import {SpawnOptions} from 'child_process';
 const fse = require('fs-extra');
 
-
-export function exec(cmd: string) {
-    child_process.exec(cmd, (err, stdout, stderr) => {
-        if (err) {
-            console.log(err);
-        } else if (stdout) {
-            console.log(stdout);
-        } else {
-            console.log(stderr);
-        }
+export function spawn(command: string, args?: string[], options?: SpawnOptions) {
+    return new Promise(resolve => {
+        const childProcess = child_process.spawn(process.platform === 'win32' ? `${command}.cmd` : command, args, options);
+        childProcess.stdout.on('end', resolve);
+        childProcess.stdout.on('data', log);
+        childProcess.stderr.on('data', log);
     });
 }
 
-export function getOption(obj: object, showValue: boolean = false) {
-    const key = Object.keys(obj)[0];
-    const value = obj[key];
-    if (value) {
-        const optionName =  `--${toLine(key)}`;
-        return showValue ? `${optionName} ${value} ` : `${optionName} `;
-    } else {
-        return '';
+function log(data: Buffer) {
+    console.log(data.toString());
+}
+
+export function getArgs(obj: object, withValue = false) {
+    const args = new Array<string>();
+    for (const key of Object.keys(obj)) {
+        const value = obj[key];
+        if (value) {
+            args.push(`--${toLine(key)}`);
+            if (withValue) {
+                args.push(value);
+            }
+        }
     }
+    return args;
 }
 
 // 驼峰转换下划线
@@ -43,6 +47,7 @@ export function replaceContent(projectName: string, file: string) {
                     if (err2) {
                         console.log(err2);
                     } else {
+                        console.log(`${file}文件下载完成`);
                         resolve();
                     }
                 });

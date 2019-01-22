@@ -1,0 +1,168 @@
+{
+  "alias": "ls",
+  "desc": "编译并加载本地页面",
+  "usage": "<project> [options]",
+  "$impl": "./local-start",
+  "options": [
+    {
+      "flags": "--aot",
+      "desc": "Enable hot module replacement."
+    },
+    {
+      "flags": "--base-href <value>",
+      "desc": "Base url for the application being built."
+    },
+    {
+      "flags": "--build-optimizer",
+      "desc": "Enables @angular-devkit/build-optimizer optimizations when using the 'aot' option."
+    },
+    {
+      "flags": "--common-chunk",
+      "desc": "Use a separate bundle containing code used across multiple bundles."
+    },
+    {
+      "flags": "-c, --configuration <value>",
+      "desc": "A named configuration environment, as specified in the \"configurations\" section of angular.json."
+    },
+    {
+      "flags": "--delete-output-path",
+      "desc": "Delete the output path before building."
+    },
+    {
+      "flags": "--deploy-url <value>",
+      "desc": "URL where files will be deployed."
+    },
+    {
+      "flags": "--eval-source-map",
+      "desc": "Output in-file eval sourcemaps."
+    },
+    {
+      "flags": "--extract-css",
+      "desc": "Extract css from global styles onto css files instead of js ones."
+    },
+    {
+      "flags": "--extract-licenses",
+      "desc": "Extract all licenses in a separate file."
+    },
+    {
+      "flags": "--fork-type-checker",
+      "desc": "Run the TypeScript type checker in a forked process."
+    },
+    {
+      "flags": "--i18n-file <path>",
+      "desc": "Localization file to use for i18n."
+    },
+    {
+      "flags": "--i18n-format <value>",
+      "desc": "Format of the localization file specified with --i18n-file."
+    },
+    {
+      "flags": "--i18n-locale",
+      "desc": "Locale to use for i18n."
+    },
+    {
+      "flags": "--i18n-missing-translation",
+      "desc": "How to handle missing translations for i18n."
+    },
+    {
+      "flags": "--index <path>",
+      "desc": "The name of the index HTML file."
+    },
+    {
+      "flags": "--lazy-modules",
+      "desc": "List of additional NgModule files that will be lazy loaded. Lazy router modules with be discovered automatically."
+    },
+    {
+      "flags": "--main",
+      "desc": "The full path for the main entry point to the app, relative to the current workspace."
+    },
+    {
+      "flags": "--named-chunks",
+      "desc": "Use file name for lazy loaded chunks."
+    },
+    {
+      "flags": "--ngsw-config-path <path>",
+      "desc": "Path to ngsw-config.json."
+    },
+    {
+      "flags": "--optimization",
+      "desc": "When true, uses optimization for the app build."
+    },
+    {
+      "flags": "--output-hashing",
+      "desc": "Define the output filename cache-busting hashing mode."
+    },
+    {
+      "flags": "--output-path <path>",
+      "desc": "The full path for the new output directory, relative to the current workspace.\nBy default, writes output to a folder named dist/ in the current project."
+    },
+    {
+      "flags": "--poll",
+      "desc": "Enable and define the file watching poll time period in milliseconds."
+    },
+    {
+      "flags": "--polyfills",
+      "desc": "The full path for the polyfills file, relative to the current workspace."
+    },
+    {
+      "flags": "--preserve-symlinks",
+      "desc": "Do not use the real path when resolving modules."
+    },
+    {
+      "flags": "--prod",
+      "desc": "When true, sets the build configuration to the production environment.\nAll builds make use of bundling and limited tree-shaking, A production build also runs limited dead code elimination using UglifyJS."
+    },
+    {
+      "flags": "--profile",
+      "desc": "Output profile events for Chrome profiler."
+    },
+    {
+      "flags": "--progress",
+      "desc": "Log progress to the console while building."
+    },
+    {
+      "flags": "--service-worker",
+      "desc": "Generates a service worker config for production builds."
+    },
+    {
+      "flags": "--show-circular-dependencies",
+      "desc": "Show circular dependency warnings on builds."
+    },
+    {
+      "flags": "--skip-app-shell",
+      "desc": "Flag to prevent building an app shell."
+    },
+    {
+      "flags": "--source-map",
+      "desc": "Output sourcemaps."
+    },
+    {
+      "flags": "--stats-json",
+      "desc": "Generates a 'stats.json' file which can be analyzed using tools such as: #webpack-bundle-analyzer' or https: //webpack.github.io/analyse."
+    },
+    {
+      "flags": "--subresource-integrity",
+      "desc": "Enables the use of subresource integrity validation."
+    },
+    {
+      "flags": "--ts-config <path>",
+      "desc": "The full path for the TypeScript configuration file, relative to the current workspace."
+    },
+    {
+      "flags": "--vendor-chunk",
+      "desc": "Use a separate bundle containing only vendor libraries."
+    },
+    {
+      "flags": "--vendor-source-map",
+      "desc": "Resolve vendor packages sourcemaps."
+    },
+    {
+      "flags": "--verbose",
+      "desc": "Adds more details to output logging."
+    },
+    {
+      "flags": "--watch",
+      "desc": "Run build when files change."
+    }
+  ]
+}

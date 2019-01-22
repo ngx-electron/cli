@@ -3,7 +3,7 @@ import * as program from 'commander';
 
 interface CommandStructure {
     name: string;
-    filePath: string;
+    $impl: string;
     desc: string;
     usage: string;
     alias?: string;
@@ -14,13 +14,14 @@ interface CommandStructure {
     }[];
 }
 
-const commands: CommandStructure[] = require('./commands');
+const commandMap = require('../commands');
 
 program.version(require('../package').version)
     .usage('<command> [options]');
 
-for (const command of commands) {
-    const cmd = program.command(command.name)
+for (const key of Object.keys(commandMap)) {
+    const command: CommandStructure = require(`.${commandMap[key]}`);
+    const cmd = program.command(key)
         .description(command.desc)
         .usage(command.usage);
     if (command.alias) {
@@ -35,7 +36,7 @@ for (const command of commands) {
             }
         }
     }
-    const {action} = require(command.filePath);
+    const {action} = require(`../commands/${command.$impl}`);
     cmd.action(action);
 }
 

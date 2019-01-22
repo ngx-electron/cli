@@ -1,0 +1,130 @@
+{
+  "desc": "启动服务运行web页面，然后应用来加载服务上的web页面",
+  "alias": "ss",
+  "$impl": "./server-start",
+  "usage": "<project> [options]",
+  "options": [
+    {
+      "flags": "--aot",
+      "desc": "Build using Ahead of Time compilation."
+    },
+    {
+      "flags": "--base-href <value>",
+      "desc": "Base url for the application being built."
+    },
+    {
+      "flags": "--browser-target <value>",
+      "desc": "Target to serve."
+    },
+    {
+      "flags": "--common-chunk",
+      "desc": "Use a separate bundle containing code used across multiple bundles."
+    },
+    {
+      "flags": "-c, --configuration <value>",
+      "desc": "A named configuration environment, as specified in the \"configurations\" section of angular.json."
+    },
+    {
+      "flags": "--deploy-url <value>",
+      "desc": "URL where files will be deployed."
+    },
+    {
+      "flags": "--disable-host-check",
+      "desc": "Don\"t verify connected clients are part of allowed hosts."
+    },
+    {
+      "flags": "--eval-source-map",
+      "desc": "Output in-file eval sourcemaps."
+    },
+    {
+      "flags": "--hmr",
+      "desc": "Enable hot module replacement."
+    },
+    {
+      "flags": "--hmr-warning",
+      "desc": "Show a warning when the --hmr option is enabled."
+    },
+    {
+      "flags": "--host <value>",
+      "desc": "Host to listen on.",
+      "defaultValue": "localhost"
+    },
+    {
+      "flags": "--live-reload",
+      "desc": "Whether to reload the page on change, using live-reload."
+    },
+    {
+      "flags": "-o, --open",
+      "desc": "Opens the url in default browser."
+    },
+    {
+      "flags": "--optimization",
+      "desc": "Enables optimization of the build output."
+    },
+    {
+      "flags": "--poll",
+      "desc": "Enable and define the file watching poll time period in milliseconds."
+    },
+    {
+      "flags": "--port <value>",
+      "desc": "Port to listen on.",
+      "defaultValue": "4200"
+    },
+    {
+      "flags": "--prod",
+      "desc": "When true, sets the build configuration to the production environment.\n    All builds make use of bundling and limited tree-shaking, A production build also runs limited dead code elimination using UglifyJS."
+    },
+    {
+      "flags": "--progress",
+      "desc": "Log progress to the console while building."
+    },
+    {
+      "flags": "--proxy-config <value>",
+      "desc": "Proxy configuration file."
+    },
+    {
+      "flags": "--public-host <value>",
+      "desc": "Specify the URL that the browser client will use."
+    },
+    {
+      "flags": "--serve-path <value>",
+      "desc": "The pathname where the app will be served."
+    },
+    {
+      "flags": "--serve-path-default-warning",
+      "desc": "Show a warning when deploy-url/base-href use unsupported serve path values."
+    },
+    {
+      "flags": "--source-map",
+      "desc": "Output sourcemaps."
+    },
+    {
+      "flags": "--ssl",
+      "desc": "Serve using HTTPS."
+    },
+    {
+      "flags": "--ssl-cert <value>",
+      "desc": "SSL certificate to use for serving HTTPS."
+    },
+    {
+      "flags": "--ssl-key <value>",
+      "desc": "SSL key to use for serving HTTPS."
+    },
+    {
+      "flags": "--vendor-chunk",
+      "desc": "Use a separate bundle containing only vendor libraries."
+    },
+    {
+      "flags": "--vendor-source-map",
+      "desc": "Resolve vendor packages sourcemaps."
+    },
+    {
+      "flags": "--verbose",
+      "desc": "Adds more details to output logging."
+    },
+    {
+      "flags": "--watch",
+      "desc": "Rebuild on change."
+    }
+  ]
+}
