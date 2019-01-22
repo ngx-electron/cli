@@ -1,15 +1,34 @@
 {
     "name": "@ngx-electron/cli",
-    "version": "0.0.1",
+    "version": "0.0.8",
     "main": "index.js",
-    "author": "liangshen001",
+    "author": {
+        "name": "liangshen001",
+        "email": "wangliang520wl@hotmail.com"
+    },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ngx-electron/cli.git"
+    },
+    "bugs": {
+        "url": "https://github.com/ngx-electron/cli/issues"
+    },
+    "homepage": "https://github.com/ngx-electron/cli#readme",
     "peerDependencies": {
-        "@ngx-electron/main": "0.0.1",
-        "@ngx-electron/core": "0.0.1",
+        "@ngx-electron/main": "0.0.2",
+        "@ngx-electron/core": "0.0.1"
+    },
+    "dependencies": {
         "electron": "2.0.3",
-        "commander": "2.19.0"
+        "commander": "2.19.0",
+        "fs-extra": "^7.0.1"
     },
     "bin": {
         "ngx-electron": "./bin/ngx-electron.js"
-    }
+    },
+    "keywords": [
+        "angular",
+        "electron"
+    ]
 }
