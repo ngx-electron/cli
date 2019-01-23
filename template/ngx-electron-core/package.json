@@ -17,8 +17,8 @@
     },
     "private": true,
     "dependencies": {
-        "@ngx-electron/core": "0.0.1",
-        "@ngx-electron/main": "0.0.1",
+        "@ngx-electron/core": "lastest",
+        "@ngx-electron/main": "lastest",
         "@angular/animations": "~7.0.0",
         "@angular/common": "~7.0.0",
         "@angular/compiler": "~7.0.0",
@@ -34,7 +34,7 @@
         "zone.js": "~0.8.26"
     },
     "devDependencies": {
-        "@ngx-electron/cli": "0.0.6",
+        "@ngx-electron/cli": "lastest",
         "@angular-devkit/build-angular": "~0.10.0",
         "@angular-devkit/build-ng-packagr": "~0.10.0",
         "@angular/cli": "~7.0.6",
