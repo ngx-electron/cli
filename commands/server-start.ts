@@ -8,17 +8,19 @@ export function action(project, {
     progress, proxyConfig, publicHost, servePath, servePathDefaultWarning, sourceMap, ssl,
     sslCert, sslKey, vendorChunk, vendorSourceMap, verbose, watch
 }) {
-    spawn('npx', ['ng', 'serve',
-        ...getArgs({aot, commonChunk, disableHostCheck, evalSourceMap, hmr, hmrWarning,
-            liveReload, open, optimization, poll, prod, progress, servePathDefaultWarning, sourceMap, ssl, vendorChunk, vendorSourceMap,
-            verbose, watch}),
-        ...getArgs({baseHref, browserTarget, configuration, deployUrl, host, port, proxyConfig, publicHost, servePath,
-            sslCert, sslKey}, true)], {
-        cwd: project
-    });
-    spawn('npx', ['wait-on', `http-get://${host}:${port}/`])
-        .then(() => spawn('npx', ['tsc', '-p',
-            path.join(process.cwd(), project, 'node_modules/@ngx-electron/cli/tsconfig.electron.json')]))
-        .then(() => spawn('npx', ['electron', project, '--server',
-            ...getArgs({host, port}, true)]));
+    spawn('npx', ['tsc', '-p',
+        path.join(process.cwd(), project, 'node_modules/@ngx-electron/cli/tsconfig.electron.json')])
+        .then(() => {
+            spawn('npx', ['ng', 'serve',
+                ...getArgs({aot, commonChunk, disableHostCheck, evalSourceMap, hmr, hmrWarning, liveReload, open, optimization,
+                    poll, prod, progress, servePathDefaultWarning, sourceMap, ssl, vendorChunk, vendorSourceMap,
+                    verbose, watch}),
+                ...getArgs({baseHref, browserTarget, configuration, deployUrl, host, port, proxyConfig, publicHost, servePath,
+                    sslCert, sslKey}, true)], {
+                cwd: project
+            });
+            spawn('npx', ['wait-on', `http-get://${host}:${port}/`])
+                .then(() => spawn('npx', ['electron', project, '--server',
+                    ...getArgs({host, port}, true)]));
+        });
 }

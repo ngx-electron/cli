@@ -1,11 +1,11 @@
 {
   "alias": "b",
-  "desc": "构建electron应用（目前不可用）",
+  "desc": "构建不同平台的electron应用",
   "usage": "<project> [options]",
   "$impl": "./build",
   "options": [
     {
-      "flags": "-m, -o, --mac",
+      "flags": "-m, -o, --mac, --macos",
       "desc": "Build for macOS, accepts target list (see https://goo.gl/5uHuzj)."
     },
     {
@@ -13,7 +13,7 @@
       "desc": "Build for Linux, accepts target list (see https://goo.gl/4vwQad)."
     },
     {
-      "flags": "-w, --windows",
+      "flags": "-w, --win, --windows",
       "desc": "Build for Windows, accepts target list (see https://goo.gl/jYsTEJ)."
     },
     {

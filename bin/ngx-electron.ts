@@ -29,15 +29,18 @@ for (const key of Object.keys(commandMap)) {
     }
     if (command.options) {
         for (const option of command.options) {
-            if (option.defaultValue) {
+            if (option.defaultValue !== undefined) {
                 cmd.option(option.flags, option.desc, option.defaultValue);
             } else {
                 cmd.option(option.flags, option.desc);
             }
         }
     }
-    const {action} = require(`../commands/${command.$impl}`);
+    const {action, exit} = require(`../commands/${command.$impl}`);
     cmd.action(action);
+    if (exit) {
+        process.on('exit', exit);
+    }
 }
 
 program.parse(process.argv);
