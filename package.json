@@ -23,7 +23,6 @@
         "@ngx-electron/data": "0.0.2"
     },
     "dependencies": {
-        "electron": "2.0.3",
         "commander": "2.19.0",
         "fs-extra": "^7.0.1"
     },
