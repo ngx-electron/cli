@@ -10,8 +10,7 @@ export function action(project, {
     vendorChunk, vendorSourceMap, verbose, watch, showCircularDependencies, skipAppShell, sourceMap,
     statsJson, subresourceIntegrity, tsConfig
 }) {
-    spawn('npx', ['tsc', '-p',
-        path.join(process.cwd(), project, 'node_modules/@ngx-electron/cli/tsconfig.electron.json')])
+    spawn('npx', ['tsc', '-p', path.join(process.cwd(), project, 'tsconfig.electron.json')])
         .then(() => spawn('npx', ['ng', 'build',
             ...getArgs({aot, buildOptimizer, commonChunk, evalSourceMap, extractCss, extractLicenses,
                 forkTypeChecker, i18nLocale, i18nMissingTranslation, lazyModules, namedChunks, optimization, outputHashing,

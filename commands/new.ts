@@ -11,6 +11,7 @@ export function action(project, {data, skipInstall}) {
     replaceContent(project, 'package.json')
         .then(() => replaceContent(project, 'angular.json'))
         .then(() => replaceContent(project, 'main.ts'))
+        .then(() => replaceContent(project, 'electron-builder.json'))
         .then(() => replaceContent(project, 'package.json', '"@ngx-electron/data": "lastest"',
             `"@ngx-electron/data": "${peerDependencies['@ngx-electron/data']}"`))
         .then(() => replaceContent(project, 'package.json', '"@ngx-electron/core": "lastest"',

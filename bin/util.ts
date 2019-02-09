@@ -18,7 +18,7 @@ function log(data: Buffer) {
 }
 
 function getArgs(obj: object, withValue = false) {
-    const args = new Array<string>();
+    const args = [];
     for (const key of Object.keys(obj)) {
         const value = obj[key];
         if (value) {

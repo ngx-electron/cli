@@ -42,6 +42,7 @@ Commands:
 ngx-electron new --help
 ngx-electron server-start --help
 ngx-electron local-start --help
+ngx-electron build --help
 ```
 
 ### 创建应用(创建完项目后需要运行npm i 来下载所需的依赖包)
@@ -96,4 +97,14 @@ ngx-electron server-start .
 ```
 ngx-electron server-start . --hmr
 ```
+
+### 构建应用（Mac windows Linux）
+
+```
+ngx-electron build . --mac
+ngx-electron build . --win
+ngx-electron build . --linux
+```
+
+可以自定义electron-builder.json
 

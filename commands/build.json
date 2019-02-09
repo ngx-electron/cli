@@ -5,7 +5,7 @@
   "$impl": "./build",
   "options": [
     {
-      "flags": "-m, -o, --mac, --macos",
+      "flags": "-m, -o, --mac",
       "desc": "Build for macOS, accepts target list (see https://goo.gl/5uHuzj)."
     },
     {
@@ -13,7 +13,7 @@
       "desc": "Build for Linux, accepts target list (see https://goo.gl/4vwQad)."
     },
     {
-      "flags": "-w, --win, --windows",
+      "flags": "-w, --win",
       "desc": "Build for Windows, accepts target list (see https://goo.gl/jYsTEJ)."
     },
     {
@@ -47,10 +47,6 @@
     {
       "flags": "--aot",
       "desc": "Enable hot module replacement."
-    },
-    {
-      "flags": "--base-href <value>",
-      "desc": "Base url for the application being built."
     },
     {
       "flags": "--build-optimizer",

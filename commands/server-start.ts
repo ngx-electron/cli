@@ -8,8 +8,7 @@ export function action(project, {
     progress, proxyConfig, publicHost, servePath, servePathDefaultWarning, sourceMap, ssl,
     sslCert, sslKey, vendorChunk, vendorSourceMap, verbose, watch
 }) {
-    spawn('npx', ['tsc', '-p',
-        path.join(process.cwd(), project, 'node_modules/@ngx-electron/cli/tsconfig.electron.json')])
+    spawn('npx', ['tsc', '-p', path.join(process.cwd(), project, 'tsconfig.electron.json')])
         .then(() => {
             spawn('npx', ['ng', 'serve',
                 ...getArgs({aot, commonChunk, disableHostCheck, evalSourceMap, hmr, hmrWarning, liveReload, open, optimization,
