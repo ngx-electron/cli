@@ -5,11 +5,11 @@
   "compression": "maximum",
   "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
   "directories": {
-    "output": "dist/release/"
+    "output": "dist/electron/"
   },
   "files": [
-    "dist/demo/*",
-    "main.js"
+      "dist/demo/*",
+      "dist/electron/*"
   ],
   "dmg": {
     "backgroundColor": "#FFFFFF",
@@ -51,8 +51,8 @@
     "oneClick": false,
     "perMachine": true,
     "allowToChangeInstallationDirectory": true,
-    "installerIcon": "./src/favicon.ico",
-    "uninstallerIcon": "./src/favicon.ico",
+    "installerIcon": "src/favicon.ico",
+    "uninstallerIcon": "src/favicon.ico",
 //    "installerSidebar": "./src/assets/icon/left.bmp",
 //    "uninstallerSidebar": "./src/assets/icon/left.bmp",
     "artifactName": "${productName}-${version}-${os}-${arch}-setup.${ext}",

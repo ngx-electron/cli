@@ -23,7 +23,7 @@ export function action(project, {
         }))
         .then(() => spawn('npx', ['electron-builder', 'build',
             ...getArgs({mac, linux, win, x64, ia32, armv7l, arm64, dir, prepackaged}),
-            ...getArgs({config}, true)], {
+            ...getArgs({config: config ? config : path.join(process.cwd(), project, 'electron', 'electron-builder.json')}, true)], {
             cwd: project
         }))
         /*.then(() => setTargetForWeb(project))*/;

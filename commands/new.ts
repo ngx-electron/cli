@@ -10,8 +10,9 @@ export function action(project, {data, skipInstall}) {
     fse.copySync(path.join(__dirname, templatePath), path.join(process.cwd(), project));
     replaceContent(project, 'package.json')
         .then(() => replaceContent(project, 'angular.json'))
-        .then(() => replaceContent(project, 'main.ts'))
-        .then(() => replaceContent(project, 'electron-builder.json'))
+        .then(() => replaceContent(project, 'electron/main.ts'))
+        .then(() => replaceContent(project, 'electron/electron-builder.json'))
+        .then(() => replaceContent(project, 'electron/tsconfig.json'))
         .then(() => replaceContent(project, 'package.json', '"@ngx-electron/data": "lastest"',
             `"@ngx-electron/data": "${peerDependencies['@ngx-electron/data']}"`))
         .then(() => replaceContent(project, 'package.json', '"@ngx-electron/core": "lastest"',
