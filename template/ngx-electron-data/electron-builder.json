@@ -1,0 +1,61 @@
+{
+  "appId": "com.liangshen",
+  "productName": "demo",
+  "copyright": "Copyright©2018liangshen",
+  "compression": "maximum",
+  "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
+  "directories": {
+    "output": "dist/release/"
+  },
+  "files": [
+    "dist/demo/*",
+    "main.js"
+  ],
+  "dmg": {
+    "backgroundColor": "#FFFFFF",
+    "contents": [
+      {
+        "x": 130,
+        "y": 220
+      },
+      {
+        "x": 410,
+        "y": 220,
+        "type": "link",
+        "path": "/Applications"
+      }
+    ],
+    "title": "TiEthWallet ${version}"
+  },
+  "win": {
+    "target": [
+      "nsis"
+    ]
+  },
+  "mac": {
+    "category": "public.app-category.utilities",
+    "target": [
+      "dmg"
+    ]
+  },
+  "linux": {
+    "category": "Utility",
+    "synopsis": "TiEthWallet",
+    "description": "TiEthWallet",
+    "target": [
+      "AppImage",
+      "deb"
+    ]
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": true,
+    "allowToChangeInstallationDirectory": true,
+      "installerIcon": "./src/favicon.ico",
+      "uninstallerIcon": "./src/favicon.ico",
+//    "installerSidebar": "./src/assets/icon/left.bmp",
+//    "uninstallerSidebar": "./src/assets/icon/left.bmp",
+    "artifactName": "${productName}-${version}-${os}-${arch}-setup.${ext}",
+    "deleteAppDataOnUninstall": true
+  }
+}

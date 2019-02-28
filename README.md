@@ -10,6 +10,8 @@ npm install -g @ngx-electron/cli
 
 ## 使用
 
+安装完成后，使用ngx-electron命令创建应用并启动应用
+
 ```
 ngx-electron new demo --data # 创建一个@ngx-electron/core和@ngx-electron/data的项目 因为需要下载依赖包所以可能比较慢 可以使用--skip-install选项取消下载
 ngx-electron server-start ./demo --hmr # 启动angular项目在4200端口，然后electron会加载这这个端口的页面 此时如果修改代码 electron应用会刷新
@@ -40,14 +42,17 @@ Commands:
 ngx-electron new --help
 ngx-electron server-start --help
 ngx-electron local-start --help
+ngx-electron build --help
 ```
 
-### 创建应用(创建完项目后需要运行npm i 来下载所需的依赖包)
+### 创建应用(创建完项目后会下载所需的依赖包，国内很慢，需要科学上网，可使用--skip-install来跳过安装)
 ```
 ngx-electron new <projectName> [options]
 ```
 projectName指定创建应用的名字
-options选项  目前只有 --data 来指定是否使用ngrx （使用ngrx可以很好的做到多个窗口间的数据同步）
+options选项  
+ --data 来指定是否使用ngrx （使用ngrx可以很好的做到多个窗口间的数据同步）
+ --skip-install 路过依赖包的下载
 
 #### 创建一个简单的项目 基于@ngx-electron/core
 
@@ -94,4 +99,16 @@ ngx-electron server-start .
 ```
 ngx-electron server-start . --hmr
 ```
+
+### 构建应用（Mac windows Linux）
+
+```
+ngx-electron build . -m
+ngx-electron build . -w
+ngx-electron build . -l
+```
+
+可以自定义electron-builder.json
+
+ngx-electron build 使用的是electron-builder来打包electron应用 使用electron-builder打包应用我发现有些静态资源不能被打包 所有会出现找不到资源
 

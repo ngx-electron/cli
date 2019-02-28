@@ -1,6 +1,6 @@
 {
   "alias": "n",
-  "usage": "<projectName>",
+  "usage": "<project>",
   "desc": "创建一个angular, electron应用",
   "$impl": "./new",
   "options": [

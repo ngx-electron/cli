@@ -1,6 +1,8 @@
 {
     "name": "@ngx-electron/cli",
-    "version": "0.0.8",
+    "version": "0.1.4",
+    "pordVersion": "0.0.13",
+    "betaVersion": "0.0.13",
     "main": "index.js",
     "author": {
         "name": "liangshen001",
@@ -16,11 +18,11 @@
     },
     "homepage": "https://github.com/ngx-electron/cli#readme",
     "peerDependencies": {
-        "@ngx-electron/main": "0.0.2",
-        "@ngx-electron/core": "0.0.1"
+        "@ngx-electron/main": "^0.0.11",
+        "@ngx-electron/core": "^0.0.9",
+        "@ngx-electron/data": "^0.0.8"
     },
     "dependencies": {
-        "electron": "2.0.3",
         "commander": "2.19.0",
         "fs-extra": "^7.0.1"
     },
