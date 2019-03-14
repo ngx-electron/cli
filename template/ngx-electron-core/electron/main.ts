@@ -1,11 +1,11 @@
 import {app, BrowserWindow} from 'electron';
-import {createWindow, initElectronMainIpcListener, isMac} from '@ngx-electron/main';
+import {createTray, createWindow, initElectronMainIpcListener, isMac} from '@ngx-electron/main';
 
 let win: BrowserWindow;
-initElectronMainIpcListener('icon/logo.png');
+initElectronMainIpcListener();
 
 function init() {
-
+    createTray('icon/logo.png');
     win = createWindow('page1', {
         width: 1024,
         height: 768,
