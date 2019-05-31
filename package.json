@@ -1,6 +1,6 @@
 {
     "name": "@ngx-electron/cli",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "main": "index.js",
     "author": {
         "name": "liangshen001",
@@ -16,9 +16,9 @@
     },
     "homepage": "https://github.com/ngx-electron/cli#readme",
     "peerDependencies": {
-        "@ngx-electron/main": "^0.1.0",
-        "@ngx-electron/core": "^0.1.0",
-        "@ngx-electron/data": "^0.1.0"
+        "@ngx-electron/main": "^0.1.1",
+        "@ngx-electron/core": "^0.1.1",
+        "@ngx-electron/data": "^0.1.1"
     },
     "dependencies": {
         "commander": "2.19.0",
