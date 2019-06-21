@@ -73,7 +73,6 @@ typings/
 
 # Serverless directories
 .serverless
-package-lock.json
 
 ### Node template
 # Logs
